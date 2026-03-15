@@ -6,87 +6,23 @@
   <title>Balance</title>
   <meta name="description" content="Balance is a personal life-navigation app organized around nine domains, with Spirit at the center, where each domain is assessed through contentment and interpreted through philosophical lenses to support real-life decisions and planning." />
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&display=swap');
     :root{
       --bg:#07101b;
-      --line:rgba(185,223,255,.18);
-      --line-strong:rgba(222,190,132,.34);
+      --line:rgba(185,223,255,.16);
+      --line-strong:rgba(222,190,132,.28);
       --text:#eef6ff;
-      --muted:#d6e2f0;
+      --muted:#dbe6f2;
       --shadow:0 30px 80px rgba(0,0,0,.42);
     }
     *{box-sizing:border-box}
     html,body{margin:0;height:100%}
     body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);overflow:hidden}
-    .hero{
-      position:relative;
-      min-height:100vh;
-      display:flex;
-      align-items:flex-end;
-      justify-content:center;
-      padding:clamp(34px,5vw,72px);
-      isolation:isolate;
-      background:
-        linear-gradient(180deg, rgba(5,10,18,.18) 0%, rgba(5,10,18,.36) 52%, rgba(5,10,18,.72) 100%),
-        url('./assets/2026-03-15-balance-hero-bg-v2.png') center center / cover no-repeat;
-    }
-    .hero::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        radial-gradient(circle at 50% 50%, transparent 0%, transparent 58%, rgba(3,7,14,.18) 100%),
-        linear-gradient(90deg, rgba(6,10,18,.38) 0%, rgba(6,10,18,.06) 36%, rgba(6,10,18,.12) 68%, rgba(6,10,18,.42) 100%);
-      z-index:-1;
-    }
-    .entry-card{
-      position:relative;
-      display:inline-block;
-      width:auto;
-      max-width:min(760px, calc(100vw - 120px));
-      padding:26px 30px 30px;
-      border:1px solid var(--line);
-      background:linear-gradient(180deg, rgba(10,17,28,.34), rgba(8,14,24,.18));
-      backdrop-filter:blur(10px);
-      -webkit-backdrop-filter:blur(10px);
-      border-radius:28px;
-      box-shadow:var(--shadow);
-      text-decoration:none;
-      color:inherit;
-      cursor:pointer;
-      overflow:hidden;
-      transition:transform .28s ease,border-color .28s ease,box-shadow .28s ease,background .28s ease;
-      margin:0 auto;
-    }
-    .entry-card:hover,.entry-card:focus-visible{
-      transform:translateY(-6px);
-      border-color:var(--line-strong);
-      box-shadow:0 34px 95px rgba(0,0,0,.48),0 0 0 1px rgba(222,190,132,.12);
-      background:linear-gradient(180deg, rgba(11,18,30,.48), rgba(8,14,24,.28));
-      outline:none;
-    }
-    .eyebrow{
-      display:inline-block;
-      margin:0 0 16px;
-      padding:8px 14px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.08);
-      background:rgba(13,20,30,.22);
-      color:#eef4ff;
-      font-size:.78rem;
-      font-weight:700;
-      letter-spacing:.18em;
-      text-transform:uppercase;
-    }
-    .desc{
-      margin:0;
-      width:min(44ch, 100% - 14px);
-      font-size:clamp(1.02rem,1.55vw,1.2rem);
-      line-height:1.78;
-      color:var(--muted);
-      text-wrap:pretty;
-      text-align:left;
-      max-width:44ch;
-    }
+    .hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;justify-content:center;padding:clamp(34px,5vw,72px);isolation:isolate;background:linear-gradient(180deg, rgba(5,10,18,.18) 0%, rgba(5,10,18,.36) 52%, rgba(5,10,18,.72) 100%),url('./assets/2026-03-15-balance-hero-bg-v2.png') center center / cover no-repeat}
+    .hero::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 50%, transparent 0%, transparent 58%, rgba(3,7,14,.18) 100%),linear-gradient(90deg, rgba(6,10,18,.38) 0%, rgba(6,10,18,.06) 36%, rgba(6,10,18,.12) 68%, rgba(6,10,18,.42) 100%);z-index:-1}
+    .entry-card{position:relative;display:inline-block;width:auto;max-width:min(760px, calc(100vw - 120px));padding:24px 28px 26px;border:1px solid var(--line);background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:28px;box-shadow:var(--shadow);text-decoration:none;color:inherit;cursor:pointer;overflow:hidden;transition:transform .28s ease,border-color .28s ease,box-shadow .28s ease,background .28s ease;margin:0 auto}
+    .entry-card:hover,.entry-card:focus-visible{transform:translateY(-6px);border-color:var(--line-strong);box-shadow:0 34px 95px rgba(0,0,0,.48),0 0 0 1px rgba(222,190,132,.1);background:linear-gradient(180deg, rgba(255,255,255,.1), rgba(255,255,255,.04));outline:none}
+    .desc{margin:0;width:min(43ch, 100%);max-width:43ch;font-family:"Cormorant Garamond", serif;font-weight:300;font-size:clamp(1.35rem,1.95vw,1.72rem);line-height:1.34;color:var(--muted);text-wrap:pretty;text-align:justify;text-align-last:left;letter-spacing:.01em}
     .nav-pill{position:fixed;left:24px;top:24px;width:72px;height:148px;border-radius:999px;border:1px solid rgba(185,223,255,.28);background:linear-gradient(180deg, rgba(10,18,30,.88), rgba(7,14,24,.78));backdrop-filter:blur(10px);box-shadow:0 18px 42px rgba(0,0,0,.35);display:flex;flex-direction:column;overflow:hidden;z-index:9999;touch-action:none;user-select:none;cursor:grab}
     .nav-pill.dragging{cursor:grabbing}
     .nav-half{flex:1;border:0;background:transparent;color:#eaf5ff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;font:inherit;cursor:pointer;padding:0 6px;transition:background .22s ease,color .22s ease}
@@ -99,7 +35,6 @@
 <body>
   <main class="hero">
     <a class="entry-card" href="menu.html" aria-label="Enter Balance menu">
-      <p class="eyebrow">Balance · Vision</p>
       <p class="desc">Balance is a personal life-navigation app organized around nine domains, with Spirit at the center, where each domain is assessed through contentment and interpreted through philosophical lenses to support real-life decisions and planning.</p>
     </a>
   </main>
@@ -117,24 +52,15 @@
 
   <script>
     (function(){
-      const pill=document.getElementById('navPill');
-      const home=document.getElementById('navHome');
-      const back=document.getElementById('navBack');
-      if(!pill||!home||!back) return;
-      const clamp=(v,min,max)=>Math.max(min,Math.min(max,v));
-      const key='balanceNavPillPos';
+      const pill=document.getElementById('navPill'); const home=document.getElementById('navHome'); const back=document.getElementById('navBack'); if(!pill||!home||!back) return;
+      const clamp=(v,min,max)=>Math.max(min,Math.min(max,v)); const key='balanceNavPillPos';
       const place=()=>{ try{ const raw=localStorage.getItem(key); if(!raw) return; const pos=JSON.parse(raw); const maxLeft=window.innerWidth-pill.offsetWidth-10; const maxTop=window.innerHeight-pill.offsetHeight-10; pill.style.left=clamp(pos.left ?? 24,10,maxLeft)+'px'; pill.style.top=clamp(pos.top ?? 24,10,maxTop)+'px'; }catch(_){} };
       const save=()=>{ try{ localStorage.setItem(key, JSON.stringify({left:pill.offsetLeft, top:pill.offsetTop})); }catch(_){} };
-      let drag=null, moved=false;
+      let drag=null,moved=false;
       const onPointerDown=(e)=>{ drag={id:e.pointerId,startX:e.clientX,startY:e.clientY,left:pill.offsetLeft,top:pill.offsetTop,target:e.target.closest('button')}; moved=false; pill.classList.add('dragging'); pill.setPointerCapture(e.pointerId); e.preventDefault(); };
-      const onPointerMove=(e)=>{ if(!drag||e.pointerId!==drag.id) return; const dx=e.clientX-drag.startX, dy=e.clientY-drag.startY; if(Math.abs(dx)>3||Math.abs(dy)>3) moved=true; const maxLeft=window.innerWidth-pill.offsetWidth-10; const maxTop=window.innerHeight-pill.offsetHeight-10; pill.style.left=clamp(drag.left+dx,10,maxLeft)+'px'; pill.style.top=clamp(drag.top+dy,10,maxTop)+'px'; };
+      const onPointerMove=(e)=>{ if(!drag||e.pointerId!==drag.id) return; const dx=e.clientX-drag.startX,dy=e.clientY-drag.startY; if(Math.abs(dx)>3||Math.abs(dy)>3) moved=true; const maxLeft=window.innerWidth-pill.offsetWidth-10; const maxTop=window.innerHeight-pill.offsetHeight-10; pill.style.left=clamp(drag.left+dx,10,maxLeft)+'px'; pill.style.top=clamp(drag.top+dy,10,maxTop)+'px'; };
       const onPointerUp=(e)=>{ if(!drag||e.pointerId!==drag.id) return; pill.classList.remove('dragging'); try{ pill.releasePointerCapture(e.pointerId); }catch(_){} const target=drag.target; const wasMoved=moved; drag=null; save(); if(!wasMoved && target){ if(target===home) window.location.href='menu.html'; else if(target===back){ if(window.history.length>1) window.history.back(); else window.location.href='menu.html'; } } };
-      pill.addEventListener('pointerdown',onPointerDown);
-      pill.addEventListener('pointermove',onPointerMove);
-      pill.addEventListener('pointerup',onPointerUp);
-      pill.addEventListener('pointercancel',()=>{ pill.classList.remove('dragging'); drag=null; save(); });
-      window.addEventListener('resize',place);
-      place();
+      pill.addEventListener('pointerdown',onPointerDown); pill.addEventListener('pointermove',onPointerMove); pill.addEventListener('pointerup',onPointerUp); pill.addEventListener('pointercancel',()=>{ pill.classList.remove('dragging'); drag=null; save(); }); window.addEventListener('resize',place); place();
     })();
   </script>
 </body>

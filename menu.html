@@ -5,75 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Balance · Menu</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Cinzel:wght@400;600&family=Cormorant+Garamond:wght@400;500&family=Inter:wght@400;600&family=Marcellus&family=Orbitron:wght@500;700&family=Outfit:wght@400;600&family=Playfair+Display:wght@500&family=Rajdhani:wght@600;700&display=swap');
     :root{
       --bg:#08111c;
-      --panel:rgba(10,18,30,.78);
       --line:rgba(185,223,255,.18);
-      --line-strong:rgba(122,209,216,.34);
       --text:#eef6ff;
-      --muted:#c3d3e7;
-      --accent:#caa66a;
       --shadow:0 26px 70px rgba(0,0,0,.42);
     }
     *{box-sizing:border-box}
     html,body{margin:0;min-height:100%}
-    body{
-      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-      color:var(--text);
-      min-height:100vh;
-      background:
-        radial-gradient(circle at top, rgba(122,209,216,.10), transparent 30%),
-        radial-gradient(circle at 80% 20%, rgba(202,166,106,.10), transparent 20%),
-        linear-gradient(180deg, #07101b 0%, #0a1523 100%);
-      display:grid;
-      place-items:center;
-      padding:48px;
-      overflow:hidden;
-    }
-    .frame{
-      width:min(980px, 100%);
-      aspect-ratio:1 / 1;
-      max-height:78vh;
-      border:1px solid var(--line);
-      border-radius:28px;
-      background:linear-gradient(180deg, rgba(11,18,30,.82), rgba(8,14,24,.72));
-      box-shadow:var(--shadow);
-      padding:26px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-    .grid{
-      width:100%;
-      height:100%;
-      display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      grid-template-rows:repeat(3, 1fr);
-      gap:14px;
-    }
-    .cell{
-      border-radius:22px;
-      border:1px solid rgba(185,223,255,.16);
-      background:linear-gradient(180deg, rgba(14,24,40,.96), rgba(9,16,28,.88));
-      box-shadow:inset 0 0 0 1px rgba(255,255,255,.02);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:rgba(238,246,255,.88);
-      font-size:1rem;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      user-select:none;
-    }
-    .cell.center{
-      border-color:rgba(202,166,106,.34);
-      background:radial-gradient(circle at 50% 45%, rgba(202,166,106,.16), rgba(122,209,216,.08) 40%, rgba(9,16,28,.92) 78%), linear-gradient(180deg, rgba(16,26,42,.98), rgba(9,16,28,.9));
-      color:#f3e2bf;
-      font-size:1.28rem;
-      font-weight:700;
-      letter-spacing:.16em;
-      box-shadow:0 0 0 1px rgba(202,166,106,.10), 0 14px 34px rgba(0,0,0,.22);
-    }
+    body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--text);min-height:100vh;background:radial-gradient(circle at top, rgba(122,209,216,.10), transparent 30%),radial-gradient(circle at 80% 20%, rgba(202,166,106,.10), transparent 20%),linear-gradient(180deg, #07101b 0%, #0a1523 100%);display:grid;place-items:center;padding:48px;overflow:hidden}
+    .frame{width:min(84vh, calc(100vw - 96px));height:min(84vh, calc(100vw - 96px));border:1px solid var(--line);border-radius:28px;background:linear-gradient(180deg, rgba(11,18,30,.82), rgba(8,14,24,.72));box-shadow:var(--shadow);padding:24px;display:flex;align-items:center;justify-content:center}
+    .grid{width:100%;height:100%;display:grid;grid-template-columns:repeat(3, 1fr);grid-template-rows:repeat(3, 1fr);gap:14px}
+    .cell{border-radius:0;border:1px solid rgba(185,223,255,.16);background:linear-gradient(180deg, rgba(14,24,40,.96), rgba(9,16,28,.88));box-shadow:inset 0 0 0 1px rgba(255,255,255,.02);display:flex;align-items:center;justify-content:center;color:rgba(238,246,255,.92);font-size:1rem;letter-spacing:.05em;text-transform:uppercase;user-select:none;aspect-ratio:1 / 1;text-align:center;padding:10px}
+    .cell.center{border-color:rgba(202,166,106,.34);background:radial-gradient(circle at 50% 45%, rgba(202,166,106,.16), rgba(122,209,216,.08) 40%, rgba(9,16,28,.92) 78%), linear-gradient(180deg, rgba(16,26,42,.98), rgba(9,16,28,.9));color:#f3e2bf;box-shadow:0 0 0 1px rgba(202,166,106,.10), 0 14px 34px rgba(0,0,0,.22)}
+    .mind{font-family:'Orbitron',sans-serif;font-weight:600}
+    .body{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:1.18rem}
+    .impact{font-family:'Audiowide',sans-serif;font-size:.96rem}
+    .connection{font-family:'Playfair Display',serif;text-transform:none;font-size:1.12rem;letter-spacing:.02em}
+    .spirit{font-family:'Cinzel',serif;font-weight:600;font-size:1.34rem;letter-spacing:.16em}
+    .home{font-family:'Marcellus',serif;font-size:1.08rem;letter-spacing:.08em}
+    .novelty{font-family:'Outfit',sans-serif;font-weight:600}
+    .play{font-family:'Cormorant Garamond',serif;font-size:1.42rem;text-transform:none;letter-spacing:.01em}
+    .wealth{font-family:'Inter',sans-serif;font-weight:600}
     .nav-pill{position:fixed;left:24px;top:24px;width:72px;height:148px;border-radius:999px;border:1px solid rgba(185,223,255,.28);background:linear-gradient(180deg, rgba(10,18,30,.88), rgba(7,14,24,.78));backdrop-filter:blur(10px);box-shadow:0 18px 42px rgba(0,0,0,.35);display:flex;flex-direction:column;overflow:hidden;z-index:9999;touch-action:none;user-select:none;cursor:grab}
     .nav-pill.dragging{cursor:grabbing}
     .nav-half{flex:1;border:0;background:transparent;color:#eaf5ff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;font:inherit;cursor:pointer;padding:0 6px;transition:background .22s ease,color .22s ease}
@@ -86,49 +40,34 @@
 <body>
   <main class="frame" aria-label="Balance grid menu">
     <section class="grid">
-      <div class="cell">Mind</div>
-      <div class="cell">Body</div>
-      <div class="cell">Impact</div>
-      <div class="cell">Connection</div>
-      <div class="cell center">Spirit</div>
-      <div class="cell">Home</div>
-      <div class="cell">Novelty</div>
-      <div class="cell">Play</div>
-      <div class="cell">Wealth</div>
+      <div class="cell mind">Mind</div>
+      <div class="cell body">Body</div>
+      <div class="cell impact">Impact</div>
+      <div class="cell connection">Connection</div>
+      <div class="cell center spirit">Spirit</div>
+      <div class="cell home">Home</div>
+      <div class="cell novelty">Novelty</div>
+      <div class="cell play">Play</div>
+      <div class="cell wealth">Wealth</div>
     </section>
   </main>
 
   <div class="nav-pill" id="navPill" aria-label="Navigation control">
-    <button class="nav-half" id="navHome" type="button" aria-label="Go to menu">
-      <span class="icon">⌂</span>
-      <span class="label">Menu</span>
-    </button>
-    <button class="nav-half" id="navBack" type="button" aria-label="Go back one page">
-      <span class="icon">←</span>
-      <span class="label">Back</span>
-    </button>
+    <button class="nav-half" id="navHome" type="button" aria-label="Go to menu"><span class="icon">⌂</span><span class="label">Menu</span></button>
+    <button class="nav-half" id="navBack" type="button" aria-label="Go back one page"><span class="icon">←</span><span class="label">Back</span></button>
   </div>
 
   <script>
     (function(){
-      const pill=document.getElementById('navPill');
-      const home=document.getElementById('navHome');
-      const back=document.getElementById('navBack');
-      if(!pill||!home||!back) return;
-      const clamp=(v,min,max)=>Math.max(min,Math.min(max,v));
-      const key='balanceNavPillPos';
+      const pill=document.getElementById('navPill'); const home=document.getElementById('navHome'); const back=document.getElementById('navBack'); if(!pill||!home||!back) return;
+      const clamp=(v,min,max)=>Math.max(min,Math.min(max,v)); const key='balanceNavPillPos';
       const place=()=>{ try{ const raw=localStorage.getItem(key); if(!raw) return; const pos=JSON.parse(raw); const maxLeft=window.innerWidth-pill.offsetWidth-10; const maxTop=window.innerHeight-pill.offsetHeight-10; pill.style.left=clamp(pos.left ?? 24,10,maxLeft)+'px'; pill.style.top=clamp(pos.top ?? 24,10,maxTop)+'px'; }catch(_){} };
       const save=()=>{ try{ localStorage.setItem(key, JSON.stringify({left:pill.offsetLeft, top:pill.offsetTop})); }catch(_){} };
-      let drag=null, moved=false;
+      let drag=null,moved=false;
       const onPointerDown=(e)=>{ drag={id:e.pointerId,startX:e.clientX,startY:e.clientY,left:pill.offsetLeft,top:pill.offsetTop,target:e.target.closest('button')}; moved=false; pill.classList.add('dragging'); pill.setPointerCapture(e.pointerId); e.preventDefault(); };
-      const onPointerMove=(e)=>{ if(!drag||e.pointerId!==drag.id) return; const dx=e.clientX-drag.startX, dy=e.clientY-drag.startY; if(Math.abs(dx)>3||Math.abs(dy)>3) moved=true; const maxLeft=window.innerWidth-pill.offsetWidth-10; const maxTop=window.innerHeight-pill.offsetHeight-10; pill.style.left=clamp(drag.left+dx,10,maxLeft)+'px'; pill.style.top=clamp(drag.top+dy,10,maxTop)+'px'; };
+      const onPointerMove=(e)=>{ if(!drag||e.pointerId!==drag.id) return; const dx=e.clientX-drag.startX,dy=e.clientY-drag.startY; if(Math.abs(dx)>3||Math.abs(dy)>3) moved=true; const maxLeft=window.innerWidth-pill.offsetWidth-10; const maxTop=window.innerHeight-pill.offsetHeight-10; pill.style.left=clamp(drag.left+dx,10,maxLeft)+'px'; pill.style.top=clamp(drag.top+dy,10,maxTop)+'px'; };
       const onPointerUp=(e)=>{ if(!drag||e.pointerId!==drag.id) return; pill.classList.remove('dragging'); try{ pill.releasePointerCapture(e.pointerId); }catch(_){} const target=drag.target; const wasMoved=moved; drag=null; save(); if(!wasMoved && target){ if(target===home) window.location.href='menu.html'; else if(target===back){ if(window.history.length>1) window.history.back(); else window.location.href='index.html'; } } };
-      pill.addEventListener('pointerdown',onPointerDown);
-      pill.addEventListener('pointermove',onPointerMove);
-      pill.addEventListener('pointerup',onPointerUp);
-      pill.addEventListener('pointercancel',()=>{ pill.classList.remove('dragging'); drag=null; save(); });
-      window.addEventListener('resize',place);
-      place();
+      pill.addEventListener('pointerdown',onPointerDown); pill.addEventListener('pointermove',onPointerMove); pill.addEventListener('pointerup',onPointerUp); pill.addEventListener('pointercancel',()=>{ pill.classList.remove('dragging'); drag=null; save(); }); window.addEventListener('resize',place); place();
     })();
   </script>
 </body>
