@@ -8,8 +8,9 @@
   <style>
     :root{
       --bg:#07101b;
-      --panel:rgba(8,14,24,.48);
+      --panel:rgba(8,14,24,.52);
       --line:rgba(185,223,255,.22);
+      --line-strong:rgba(222,190,132,.38);
       --text:#eef6ff;
       --muted:#c6d6ea;
       --accent:#caa66a;
@@ -52,15 +53,74 @@
       background:radial-gradient(circle at center, transparent 0%, transparent 48%, rgba(2,6,12,.34) 100%);
       z-index:-1;
     }
-    .content{
+    .glow{
+      position:absolute;
+      width:460px;
+      height:460px;
+      right:10%;
+      top:50%;
+      transform:translateY(-50%);
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(202,166,106,.18) 0%, rgba(122,209,216,.12) 28%, rgba(7,16,27,0) 70%);
+      filter:blur(18px);
+      pointer-events:none;
+      z-index:-1;
+    }
+    .entry-card{
       position:relative;
-      max-width: 760px;
+      display:block;
+      max-width:760px;
       padding: clamp(30px, 4vw, 44px);
       border:1px solid var(--line);
-      background: linear-gradient(180deg, rgba(10,17,28,.52), rgba(8,14,24,.34));
+      background: linear-gradient(180deg, rgba(10,17,28,.54), rgba(8,14,24,.34));
       backdrop-filter: blur(8px);
       border-radius: 28px;
       box-shadow: var(--shadow);
+      text-decoration:none;
+      color:inherit;
+      cursor:pointer;
+      overflow:hidden;
+      transform:translateY(0) scale(1);
+      transition: transform .28s ease, border-color .28s ease, box-shadow .28s ease, background .28s ease;
+    }
+    .entry-card::before{
+      content:"";
+      position:absolute;
+      inset:-1px;
+      background:linear-gradient(135deg, rgba(202,166,106,.14), rgba(122,209,216,.08), transparent 68%);
+      opacity:.45;
+      pointer-events:none;
+    }
+    .entry-card::after{
+      content:"Enter ↗";
+      position:absolute;
+      right:26px;
+      bottom:20px;
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid rgba(222,190,132,.24);
+      background:rgba(9,16,26,.56);
+      color:#ead5ae;
+      font-size:.86rem;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      opacity:.86;
+      transition: transform .28s ease, opacity .28s ease, border-color .28s ease, background .28s ease;
+    }
+    .entry-card:hover,
+    .entry-card:focus-visible{
+      transform:translateY(-8px) scale(1.012);
+      border-color:var(--line-strong);
+      box-shadow:0 34px 95px rgba(0,0,0,.48), 0 0 0 1px rgba(222,190,132,.14);
+      background: linear-gradient(180deg, rgba(11,18,30,.66), rgba(8,14,24,.44));
+      outline:none;
+    }
+    .entry-card:hover::after,
+    .entry-card:focus-visible::after{
+      transform:translateX(6px);
+      opacity:1;
+      border-color:rgba(222,190,132,.42);
+      background:rgba(11,18,30,.74);
     }
     .eyebrow{
       display:inline-block;
@@ -97,18 +157,12 @@
       color: var(--muted);
       text-wrap:pretty;
     }
-    .glow{
-      position:absolute;
-      width:460px;
-      height:460px;
-      right:10%;
-      top:50%;
-      transform:translateY(-50%);
-      border-radius:50%;
-      background:radial-gradient(circle, rgba(202,166,106,.18) 0%, rgba(122,209,216,.12) 28%, rgba(7,16,27,0) 70%);
-      filter:blur(18px);
-      pointer-events:none;
-      z-index:-1;
+    .hint{
+      margin:24px 0 0;
+      color:rgba(238,246,255,.74);
+      font-size:.95rem;
+      letter-spacing:.06em;
+      text-transform:uppercase;
     }
     .note{
       position:absolute;
@@ -124,12 +178,13 @@
 <body>
   <main class="hero">
     <div class="glow" aria-hidden="true"></div>
-    <section class="content">
+    <a class="entry-card" href="menu.html" aria-label="Enter Balance menu">
       <p class="eyebrow">Balance · Coming into form</p>
       <h1><span class="accent">Balance</span></h1>
       <p class="desc">Balance is a personal life-navigation app organized around nine domains, with Spirit at the center, where each domain is assessed through contentment and interpreted through philosophical lenses to support real-life decisions and planning.</p>
-    </section>
-    <div class="note">Desktop hero concept · v1</div>
+      <p class="hint">Click to enter the app</p>
+    </a>
+    <div class="note">Desktop hero concept · v2</div>
   </main>
 </body>
 </html>
