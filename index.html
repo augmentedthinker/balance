@@ -8,171 +8,37 @@
   <style>
     :root{
       --bg:#07101b;
-      --panel:rgba(8,14,24,.52);
       --line:rgba(185,223,255,.22);
       --line-strong:rgba(222,190,132,.38);
       --text:#eef6ff;
       --muted:#c6d6ea;
-      --accent:#caa66a;
-      --accent2:#7ad1d8;
       --shadow:0 30px 80px rgba(0,0,0,.42);
     }
     *{box-sizing:border-box}
     html,body{margin:0;height:100%}
-    body{
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      overflow:hidden;
-    }
-    .hero{
-      position:relative;
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:flex-start;
-      padding: clamp(36px, 6vw, 88px);
-      isolation:isolate;
-      background:
-        radial-gradient(circle at 74% 18%, rgba(202,166,106,.18), transparent 20%),
-        radial-gradient(circle at 84% 76%, rgba(122,209,216,.14), transparent 22%),
-        linear-gradient(90deg, rgba(4,9,18,.9) 0%, rgba(6,12,22,.74) 38%, rgba(7,12,20,.36) 58%, rgba(7,12,20,.18) 100%),
-        url('./assets/2026-03-15-balance-hero-bg.png') center center / cover no-repeat;
-    }
-    .hero::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:linear-gradient(180deg, rgba(5,10,18,.34), rgba(5,10,18,.64));
-      z-index:-1;
-    }
-    .hero::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:radial-gradient(circle at center, transparent 0%, transparent 48%, rgba(2,6,12,.34) 100%);
-      z-index:-1;
-    }
-    .glow{
-      position:absolute;
-      width:460px;
-      height:460px;
-      right:10%;
-      top:50%;
-      transform:translateY(-50%);
-      border-radius:50%;
-      background:radial-gradient(circle, rgba(202,166,106,.18) 0%, rgba(122,209,216,.12) 28%, rgba(7,16,27,0) 70%);
-      filter:blur(18px);
-      pointer-events:none;
-      z-index:-1;
-    }
-    .entry-card{
-      position:relative;
-      display:block;
-      max-width:760px;
-      padding: clamp(30px, 4vw, 44px);
-      border:1px solid var(--line);
-      background: linear-gradient(180deg, rgba(10,17,28,.54), rgba(8,14,24,.34));
-      backdrop-filter: blur(8px);
-      border-radius: 28px;
-      box-shadow: var(--shadow);
-      text-decoration:none;
-      color:inherit;
-      cursor:pointer;
-      overflow:hidden;
-      transform:translateY(0) scale(1);
-      transition: transform .28s ease, border-color .28s ease, box-shadow .28s ease, background .28s ease;
-    }
-    .entry-card::before{
-      content:"";
-      position:absolute;
-      inset:-1px;
-      background:linear-gradient(135deg, rgba(202,166,106,.14), rgba(122,209,216,.08), transparent 68%);
-      opacity:.45;
-      pointer-events:none;
-    }
-    .entry-card::after{
-      content:"Enter ↗";
-      position:absolute;
-      right:26px;
-      bottom:20px;
-      padding:10px 14px;
-      border-radius:999px;
-      border:1px solid rgba(222,190,132,.24);
-      background:rgba(9,16,26,.56);
-      color:#ead5ae;
-      font-size:.86rem;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      opacity:.86;
-      transition: transform .28s ease, opacity .28s ease, border-color .28s ease, background .28s ease;
-    }
-    .entry-card:hover,
-    .entry-card:focus-visible{
-      transform:translateY(-8px) scale(1.012);
-      border-color:var(--line-strong);
-      box-shadow:0 34px 95px rgba(0,0,0,.48), 0 0 0 1px rgba(222,190,132,.14);
-      background: linear-gradient(180deg, rgba(11,18,30,.66), rgba(8,14,24,.44));
-      outline:none;
-    }
-    .entry-card:hover::after,
-    .entry-card:focus-visible::after{
-      transform:translateX(6px);
-      opacity:1;
-      border-color:rgba(222,190,132,.42);
-      background:rgba(11,18,30,.74);
-    }
-    .eyebrow{
-      display:inline-block;
-      margin:0 0 18px;
-      padding:8px 14px;
-      border-radius:999px;
-      border:1px solid rgba(202,166,106,.38);
-      background:rgba(14,20,30,.42);
-      color:#ead5ae;
-      font-size:.82rem;
-      font-weight:700;
-      letter-spacing:.18em;
-      text-transform:uppercase;
-    }
-    h1{
-      margin:0;
-      font-size: clamp(4rem, 10vw, 8rem);
-      line-height:.92;
-      letter-spacing:-.06em;
-      font-weight:800;
-      text-wrap:balance;
-    }
-    .accent{
-      background: linear-gradient(135deg, #fff7ea 0%, #dcb77f 40%, #7ad1d8 100%);
-      -webkit-background-clip:text;
-      background-clip:text;
-      color:transparent;
-    }
-    .desc{
-      margin: 24px 0 0;
-      max-width: 38ch;
-      font-size: clamp(1.05rem, 1.8vw, 1.32rem);
-      line-height: 1.65;
-      color: var(--muted);
-      text-wrap:pretty;
-    }
-    .hint{
-      margin:24px 0 0;
-      color:rgba(238,246,255,.74);
-      font-size:.95rem;
-      letter-spacing:.06em;
-      text-transform:uppercase;
-    }
-    .note{
-      position:absolute;
-      left: clamp(36px, 6vw, 88px);
-      bottom: 28px;
-      color: rgba(230,240,255,.62);
-      font-size:.9rem;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-    }
+    body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);overflow:hidden}
+    .hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:flex-start;padding:clamp(36px,6vw,88px);isolation:isolate;background:radial-gradient(circle at 74% 18%, rgba(202,166,106,.18), transparent 20%),radial-gradient(circle at 84% 76%, rgba(122,209,216,.14), transparent 22%),linear-gradient(90deg, rgba(4,9,18,.9) 0%, rgba(6,12,22,.74) 38%, rgba(7,12,20,.36) 58%, rgba(7,12,20,.18) 100%),url('./assets/2026-03-15-balance-hero-bg.png') center center / cover no-repeat}
+    .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(5,10,18,.34), rgba(5,10,18,.64));z-index:-1}
+    .hero::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at center, transparent 0%, transparent 48%, rgba(2,6,12,.34) 100%);z-index:-1}
+    .glow{position:absolute;width:460px;height:460px;right:10%;top:50%;transform:translateY(-50%);border-radius:50%;background:radial-gradient(circle, rgba(202,166,106,.18) 0%, rgba(122,209,216,.12) 28%, rgba(7,16,27,0) 70%);filter:blur(18px);pointer-events:none;z-index:-1}
+    .entry-card{position:relative;display:block;max-width:760px;padding:clamp(30px,4vw,44px);border:1px solid var(--line);background:linear-gradient(180deg, rgba(10,17,28,.54), rgba(8,14,24,.34));backdrop-filter:blur(8px);border-radius:28px;box-shadow:var(--shadow);text-decoration:none;color:inherit;cursor:pointer;overflow:hidden;transform:translateY(0) scale(1);transition:transform .28s ease,border-color .28s ease,box-shadow .28s ease,background .28s ease}
+    .entry-card::before{content:"";position:absolute;inset:-1px;background:linear-gradient(135deg, rgba(202,166,106,.14), rgba(122,209,216,.08), transparent 68%);opacity:.45;pointer-events:none}
+    .entry-card::after{content:"Enter ↗";position:absolute;right:26px;bottom:20px;padding:10px 14px;border-radius:999px;border:1px solid rgba(222,190,132,.24);background:rgba(9,16,26,.56);color:#ead5ae;font-size:.86rem;letter-spacing:.08em;text-transform:uppercase;opacity:.86;transition:transform .28s ease,opacity .28s ease,border-color .28s ease,background .28s ease}
+    .entry-card:hover,.entry-card:focus-visible{transform:translateY(-8px) scale(1.012);border-color:var(--line-strong);box-shadow:0 34px 95px rgba(0,0,0,.48),0 0 0 1px rgba(222,190,132,.14);background:linear-gradient(180deg, rgba(11,18,30,.66), rgba(8,14,24,.44));outline:none}
+    .entry-card:hover::after,.entry-card:focus-visible::after{transform:translateX(6px);opacity:1;border-color:rgba(222,190,132,.42);background:rgba(11,18,30,.74)}
+    .eyebrow{display:inline-block;margin:0 0 18px;padding:8px 14px;border-radius:999px;border:1px solid rgba(202,166,106,.38);background:rgba(14,20,30,.42);color:#ead5ae;font-size:.82rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+    h1{margin:0;font-size:clamp(4rem,10vw,8rem);line-height:.92;letter-spacing:-.06em;font-weight:800;text-wrap:balance}
+    .accent{background:linear-gradient(135deg, #fff7ea 0%, #dcb77f 40%, #7ad1d8 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .desc{margin:24px 0 0;max-width:38ch;font-size:clamp(1.05rem,1.8vw,1.32rem);line-height:1.65;color:var(--muted);text-wrap:pretty}
+    .hint{margin:24px 0 0;color:rgba(238,246,255,.74);font-size:.95rem;letter-spacing:.06em;text-transform:uppercase}
+    .note{position:absolute;left:clamp(36px,6vw,88px);bottom:28px;color:rgba(230,240,255,.62);font-size:.9rem;letter-spacing:.08em;text-transform:uppercase}
+    .nav-pill{position:fixed;left:24px;top:24px;width:72px;height:148px;border-radius:999px;border:1px solid rgba(185,223,255,.28);background:linear-gradient(180deg, rgba(10,18,30,.88), rgba(7,14,24,.78));backdrop-filter:blur(10px);box-shadow:0 18px 42px rgba(0,0,0,.35);display:flex;flex-direction:column;overflow:hidden;z-index:9999;touch-action:none;user-select:none;cursor:grab}
+    .nav-pill.dragging{cursor:grabbing}
+    .nav-half{flex:1;border:0;background:transparent;color:#eaf5ff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;font:inherit;cursor:pointer;padding:0 6px;transition:background .22s ease, color .22s ease}
+    .nav-half + .nav-half{border-top:1px solid rgba(185,223,255,.14)}
+    .nav-half:hover{background:rgba(255,255,255,.05)}
+    .nav-half .icon{font-size:1.15rem;line-height:1}
+    .nav-half .label{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-align:center;line-height:1.2}
   </style>
 </head>
 <body>
@@ -186,5 +52,38 @@
     </a>
     <div class="note">Desktop hero concept · v2</div>
   </main>
+
+  <div class="nav-pill" id="navPill" aria-label="Navigation control">
+    <button class="nav-half" id="navHome" type="button" aria-label="Go to menu">
+      <span class="icon">⌂</span>
+      <span class="label">Menu</span>
+    </button>
+    <button class="nav-half" id="navBack" type="button" aria-label="Go back one page">
+      <span class="icon">←</span>
+      <span class="label">Back</span>
+    </button>
+  </div>
+
+  <script>
+    (function(){
+      const pill=document.getElementById('navPill');
+      const home=document.getElementById('navHome');
+      const back=document.getElementById('navBack');
+      if(!pill||!home||!back) return;
+      home.addEventListener('click',()=>{ window.location.href='menu.html'; });
+      back.addEventListener('click',()=>{ if(window.history.length>1) window.history.back(); else window.location.href='menu.html'; });
+      const clamp=(v,min,max)=>Math.max(min,Math.min(max,v));
+      const key='balanceNavPillPos';
+      const place=()=>{ try{ const raw=localStorage.getItem(key); if(!raw) return; const pos=JSON.parse(raw); const maxLeft=window.innerWidth-pill.offsetWidth-10; const maxTop=window.innerHeight-pill.offsetHeight-10; pill.style.left=clamp(pos.left ?? 24,10,maxLeft)+'px'; pill.style.top=clamp(pos.top ?? 24,10,maxTop)+'px'; }catch(_){} };
+      const save=()=>{ try{ localStorage.setItem(key, JSON.stringify({left:pill.offsetLeft, top:pill.offsetTop})); }catch(_){} };
+      let drag=null,moved=false;
+      pill.addEventListener('pointerdown',(e)=>{ if(e.target.closest('button')) return; drag={id:e.pointerId,startX:e.clientX,startY:e.clientY,left:pill.offsetLeft,top:pill.offsetTop}; moved=false; pill.classList.add('dragging'); pill.setPointerCapture(e.pointerId); e.preventDefault(); });
+      pill.addEventListener('pointermove',(e)=>{ if(!drag||e.pointerId!==drag.id) return; const dx=e.clientX-drag.startX, dy=e.clientY-drag.startY; if(Math.abs(dx)>3||Math.abs(dy)>3) moved=true; const maxLeft=window.innerWidth-pill.offsetWidth-10; const maxTop=window.innerHeight-pill.offsetHeight-10; pill.style.left=clamp(drag.left+dx,10,maxLeft)+'px'; pill.style.top=clamp(drag.top+dy,10,maxTop)+'px'; });
+      pill.addEventListener('pointerup',(e)=>{ if(!drag||e.pointerId!==drag.id) return; pill.classList.remove('dragging'); try{ pill.releasePointerCapture(e.pointerId); }catch(_){} drag=null; save(); });
+      pill.addEventListener('pointercancel',()=>{ pill.classList.remove('dragging'); drag=null; save(); });
+      window.addEventListener('resize',place);
+      place();
+    })();
+  </script>
 </body>
 </html>

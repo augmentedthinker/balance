@@ -7,187 +7,128 @@
   <style>
     :root{
       --bg:#08111c;
-      --panel:rgba(10,18,30,.7);
-      --panel2:rgba(12,22,36,.86);
+      --panel:rgba(10,18,30,.78);
       --line:rgba(185,223,255,.18);
-      --line-strong:rgba(122,209,216,.3);
+      --line-strong:rgba(122,209,216,.34);
       --text:#eef6ff;
       --muted:#c3d3e7;
       --accent:#caa66a;
-      --accent2:#7ad1d8;
       --shadow:0 26px 70px rgba(0,0,0,.42);
     }
     *{box-sizing:border-box}
     html,body{margin:0;min-height:100%}
     body{
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
       color:var(--text);
       min-height:100vh;
       background:
-        radial-gradient(circle at top, rgba(122,209,216,.12), transparent 30%),
-        radial-gradient(circle at 80% 20%, rgba(202,166,106,.12), transparent 20%),
+        radial-gradient(circle at top, rgba(122,209,216,.10), transparent 30%),
+        radial-gradient(circle at 80% 20%, rgba(202,166,106,.10), transparent 20%),
         linear-gradient(180deg, #07101b 0%, #0a1523 100%);
-      display:flex;
-      align-items:center;
-      justify-content:center;
+      display:grid;
+      place-items:center;
       padding:48px;
-    }
-    .shell{
-      width:min(1180px, 100%);
-      min-height:72vh;
-      border:1px solid var(--line);
-      border-radius:32px;
-      background:linear-gradient(180deg, rgba(11,18,30,.82), rgba(8,14,24,.72));
-      box-shadow:var(--shadow);
-      display:flex;
-      flex-direction:column;
       overflow:hidden;
     }
-    .topbar{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px;
-      padding:22px 28px;
-      border-bottom:1px solid var(--line);
-      background:rgba(8,14,24,.5);
-    }
-    .brand{
-      display:flex;
-      flex-direction:column;
-      gap:6px;
-    }
-    .brand small{
-      color:#e3c794;
-      text-transform:uppercase;
-      letter-spacing:.16em;
-      font-size:.75rem;
-      font-weight:700;
-    }
-    .brand h1{
-      margin:0;
-      font-size:1.8rem;
-      letter-spacing:-.04em;
-    }
-    .back{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:10px 14px;
-      border-radius:999px;
-      text-decoration:none;
-      color:var(--text);
+    .frame{
+      width:min(980px, 100%);
+      aspect-ratio:1 / 1;
+      max-height:78vh;
       border:1px solid var(--line);
-      background:rgba(12,20,34,.64);
-      transition:transform .2s ease, border-color .2s ease;
-    }
-    .back:hover{transform:translateY(-2px);border-color:var(--line-strong)}
-    .main{
-      flex:1;
-      display:grid;
-      grid-template-columns: 1.25fr .85fr;
-      gap:0;
-    }
-    .intro{
-      padding:42px 36px 40px;
-      border-right:1px solid var(--line);
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-    }
-    .intro p.kicker{
-      margin:0 0 14px;
-      color:#e3c794;
-      text-transform:uppercase;
-      letter-spacing:.16em;
-      font-size:.82rem;
-      font-weight:700;
-    }
-    .intro h2{
-      margin:0;
-      font-size:clamp(2.1rem, 4.5vw, 4rem);
-      line-height:1;
-      letter-spacing:-.05em;
-      max-width:10ch;
-    }
-    .intro p{
-      margin:18px 0 0;
-      color:var(--muted);
-      font-size:1.08rem;
-      line-height:1.72;
-      max-width:54ch;
-    }
-    .panel{
-      padding:36px;
+      border-radius:28px;
+      background:linear-gradient(180deg, rgba(11,18,30,.82), rgba(8,14,24,.72));
+      box-shadow:var(--shadow);
+      padding:26px;
       display:flex;
       align-items:center;
       justify-content:center;
     }
-    .button-stack{
-      width:min(360px, 100%);
-      display:flex;
-      flex-direction:column;
-      gap:16px;
-    }
-    .domain-btn{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
+    .grid{
       width:100%;
-      padding:20px 22px;
+      height:100%;
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      grid-template-rows:repeat(3, 1fr);
+      gap:14px;
+    }
+    .cell{
       border-radius:22px;
-      text-decoration:none;
-      color:var(--text);
-      border:1px solid var(--line);
-      background:linear-gradient(180deg, rgba(14,24,40,.96), rgba(9,16,28,.9));
-      box-shadow:0 12px 30px rgba(0,0,0,.2);
-      transition:transform .22s ease, border-color .22s ease, box-shadow .22s ease;
-    }
-    .domain-btn:hover{
-      transform:translateY(-4px);
-      border-color:var(--line-strong);
-      box-shadow:0 18px 38px rgba(0,0,0,.28);
-    }
-    .domain-btn strong{
-      font-size:1.15rem;
-      letter-spacing:.01em;
-    }
-    .domain-btn span{
-      color:#9fd6dd;
+      border:1px solid rgba(185,223,255,.16);
+      background:linear-gradient(180deg, rgba(14,24,40,.96), rgba(9,16,28,.88));
+      box-shadow:inset 0 0 0 1px rgba(255,255,255,.02);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:rgba(238,246,255,.18);
+      font-size:1rem;
+      letter-spacing:.08em;
       text-transform:uppercase;
-      letter-spacing:.12em;
-      font-size:.8rem;
-      font-weight:700;
+      user-select:none;
     }
+    .cell.center{
+      border-color:rgba(202,166,106,.34);
+      background:radial-gradient(circle at 50% 45%, rgba(202,166,106,.16), rgba(122,209,216,.08) 40%, rgba(9,16,28,.92) 78%), linear-gradient(180deg, rgba(16,26,42,.98), rgba(9,16,28,.9));
+      color:#f3e2bf;
+      font-size:1.28rem;
+      font-weight:700;
+      letter-spacing:.16em;
+      box-shadow:0 0 0 1px rgba(202,166,106,.10), 0 14px 34px rgba(0,0,0,.22);
+    }
+    .nav-pill{position:fixed;left:24px;top:24px;width:72px;height:148px;border-radius:999px;border:1px solid rgba(185,223,255,.28);background:linear-gradient(180deg, rgba(10,18,30,.88), rgba(7,14,24,.78));backdrop-filter:blur(10px);box-shadow:0 18px 42px rgba(0,0,0,.35);display:flex;flex-direction:column;overflow:hidden;z-index:9999;touch-action:none;user-select:none;cursor:grab}
+    .nav-pill.dragging{cursor:grabbing}
+    .nav-half{flex:1;border:0;background:transparent;color:#eaf5ff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;font:inherit;cursor:pointer;padding:0 6px;transition:background .22s ease,color .22s ease}
+    .nav-half + .nav-half{border-top:1px solid rgba(185,223,255,.14)}
+    .nav-half:hover{background:rgba(255,255,255,.05)}
+    .nav-half .icon{font-size:1.15rem;line-height:1}
+    .nav-half .label{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-align:center;line-height:1.2}
   </style>
 </head>
 <body>
-  <main class="shell">
-    <header class="topbar">
-      <div class="brand">
-        <small>Balance</small>
-        <h1>Main Menu</h1>
-      </div>
-      <a class="back" href="index.html">← Back to hero</a>
-    </header>
-
-    <section class="main">
-      <div class="intro">
-        <p class="kicker">First navigation surface</p>
-        <h2>Choose a domain to enter.</h2>
-        <p>This will be the early menu layer of the app — the place where the broader Balance structure starts becoming navigable. For now, we’re beginning with a single domain button and using this page as the first practical staging ground for what the app will actually do.</p>
-      </div>
-
-      <div class="panel">
-        <div class="button-stack">
-          <a class="domain-btn" href="#" aria-label="Body domain coming soon">
-            <strong>Body</strong>
-            <span>Enter</span>
-          </a>
-        </div>
-      </div>
+  <main class="frame" aria-label="Balance grid menu">
+    <section class="grid">
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell center">Spirit</div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
     </section>
   </main>
+
+  <div class="nav-pill" id="navPill" aria-label="Navigation control">
+    <button class="nav-half" id="navHome" type="button" aria-label="Go to menu">
+      <span class="icon">⌂</span>
+      <span class="label">Menu</span>
+    </button>
+    <button class="nav-half" id="navBack" type="button" aria-label="Go back one page">
+      <span class="icon">←</span>
+      <span class="label">Back</span>
+    </button>
+  </div>
+
+  <script>
+    (function(){
+      const pill=document.getElementById('navPill');
+      const home=document.getElementById('navHome');
+      const back=document.getElementById('navBack');
+      if(!pill||!home||!back) return;
+      home.addEventListener('click',()=>{ window.location.href='menu.html'; });
+      back.addEventListener('click',()=>{ if(window.history.length>1) window.history.back(); else window.location.href='index.html'; });
+      const clamp=(v,min,max)=>Math.max(min,Math.min(max,v));
+      const key='balanceNavPillPos';
+      const place=()=>{ try{ const raw=localStorage.getItem(key); if(!raw) return; const pos=JSON.parse(raw); const maxLeft=window.innerWidth-pill.offsetWidth-10; const maxTop=window.innerHeight-pill.offsetHeight-10; pill.style.left=clamp(pos.left ?? 24,10,maxLeft)+'px'; pill.style.top=clamp(pos.top ?? 24,10,maxTop)+'px'; }catch(_){} };
+      const save=()=>{ try{ localStorage.setItem(key, JSON.stringify({left:pill.offsetLeft, top:pill.offsetTop})); }catch(_){} };
+      let drag=null;
+      pill.addEventListener('pointerdown',(e)=>{ if(e.target.closest('button')) return; drag={id:e.pointerId,startX:e.clientX,startY:e.clientY,left:pill.offsetLeft,top:pill.offsetTop}; pill.classList.add('dragging'); pill.setPointerCapture(e.pointerId); e.preventDefault(); });
+      pill.addEventListener('pointermove',(e)=>{ if(!drag||e.pointerId!==drag.id) return; const dx=e.clientX-drag.startX, dy=e.clientY-drag.startY; const maxLeft=window.innerWidth-pill.offsetWidth-10; const maxTop=window.innerHeight-pill.offsetHeight-10; pill.style.left=clamp(drag.left+dx,10,maxLeft)+'px'; pill.style.top=clamp(drag.top+dy,10,maxTop)+'px'; });
+      pill.addEventListener('pointerup',(e)=>{ if(!drag||e.pointerId!==drag.id) return; pill.classList.remove('dragging'); try{ pill.releasePointerCapture(e.pointerId); }catch(_){} drag=null; save(); });
+      pill.addEventListener('pointercancel',()=>{ pill.classList.remove('dragging'); drag=null; save(); });
+      window.addEventListener('resize',place);
+      place();
+    })();
+  </script>
 </body>
 </html>
