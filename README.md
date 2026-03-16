@@ -39,6 +39,7 @@ Current active lenses:
 - Stoicism
 - Zen Buddhism
 - Existentialism
+- Christianity
 
 ## Current State of the Repo
 
