@@ -8,7 +8,7 @@
     @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Cinzel:wght@400;600&family=Cormorant+Garamond:wght@400;500&family=Inter:wght@400;600&family=Marcellus&family=Orbitron:wght@500;700&family=Outfit:wght@400;600&family=Playfair+Display:wght@500&family=Rajdhani:wght@600;700&display=swap');
     :root{--bg:#08111c;--line:rgba(185,223,255,.18);--line-strong:rgba(232,147,74,.45);--text:#eef6ff;--shadow:0 26px 70px rgba(0,0,0,.42);--orange1:#d87c3c;--orange2:#f0a35d}
     *{box-sizing:border-box} html,body{margin:0;min-height:100%}
-    body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--text);min-height:100vh;background:radial-gradient(circle at top, rgba(122,209,216,.10), transparent 30%),radial-gradient(circle at 80% 20%, rgba(202,166,106,.10), transparent 20%),linear-gradient(180deg, #07101b 0%, #0a1523 100%);display:grid;place-items:center;padding:48px;overflow:hidden}
+    body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--text);min-height:100vh;background:radial-gradient(circle at top, rgba(122,209,216,.10), transparent 30%),radial-gradient(circle at 80% 20%, rgba(202,166,106,.10), transparent 20%),linear-gradient(180deg, #07101b 0%, #0a1523 100%);display:grid;place-items:center;padding:48px;overflow-x:hidden;overflow-y:auto}
     .frame{width:min(84vh, calc(100vw - 96px));height:min(84vh, calc(100vw - 96px));border:1px solid var(--line);border-radius:28px;background:linear-gradient(180deg, rgba(11,18,30,.82), rgba(8,14,24,.72));box-shadow:var(--shadow);padding:24px;display:flex;align-items:center;justify-content:center}
     .grid{width:100%;height:100%;display:grid;grid-template-columns:repeat(3, 1fr);grid-template-rows:repeat(3, 1fr);gap:14px}
     .cell{border-radius:0;border:1px solid rgba(185,223,255,.16);background:linear-gradient(180deg, rgba(14,24,40,.96), rgba(9,16,28,.88));box-shadow:inset 0 0 0 1px rgba(255,255,255,.02);display:flex;align-items:center;justify-content:center;color:rgba(238,246,255,.92);font-size:1rem;letter-spacing:.05em;text-transform:uppercase;user-select:none;aspect-ratio:1 / 1;text-align:center;padding:10px;text-decoration:none;transition:transform .22s ease, background .22s ease, border-color .22s ease, color .22s ease, box-shadow .22s ease}
@@ -17,7 +17,19 @@
 .cell.center:hover,.cell.center:focus-visible{background:linear-gradient(180deg, rgba(216,124,60,.96), rgba(240,163,93,.86));color:#1a0f07;border-color:var(--line-strong)}
     .mind{font-family:'Orbitron',sans-serif;font-weight:600}.body{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:1.18rem}.impact{font-family:'Audiowide',sans-serif;font-size:.96rem}.connection{font-family:'Playfair Display',serif;text-transform:none;font-size:1.12rem;letter-spacing:.02em}.spirit{font-family:'Cinzel',serif;font-weight:600;font-size:1.34rem;letter-spacing:.16em}.home{font-family:'Marcellus',serif;font-size:1.08rem;letter-spacing:.08em}.novelty,.menu-font{font-family:'Outfit',sans-serif;font-weight:600}.play{font-family:'Cormorant Garamond',serif;font-size:1.42rem;text-transform:none;letter-spacing:.01em}.wealth{font-family:'Inter',sans-serif;font-weight:600}
     .nav-pill{position:fixed;left:24px;top:24px;width:72px;height:148px;border-radius:999px;border:1px solid rgba(185,223,255,.28);background:linear-gradient(180deg, rgba(10,18,30,.88), rgba(7,14,24,.78));backdrop-filter:blur(10px);box-shadow:0 18px 42px rgba(0,0,0,.35);display:flex;flex-direction:column;overflow:hidden;z-index:9999;touch-action:none;user-select:none;cursor:grab}.nav-pill.dragging{cursor:grabbing}.nav-half{flex:1;border:0;background:transparent;color:#eaf5ff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;font:inherit;cursor:pointer;padding:0 6px;transition:background .22s ease,color .22s ease}.nav-half + .nav-half{border-top:1px solid rgba(185,223,255,.14)}.nav-half:hover{background:rgba(255,255,255,.05)}.nav-half .icon{font-size:1.15rem;line-height:1}.nav-half .label{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-align:center;line-height:1.2}
-  </style>
+  
+    @media (max-width:720px){
+      body{padding:18px}
+      .frame{width:min(100%, calc(100vw - 36px));height:auto;min-height:calc(100vh - 36px);padding:16px;border-radius:24px}
+      .grid{gap:10px}
+      .cell{font-size:.9rem;padding:8px;min-height:94px}
+      .body{font-size:1.05rem}
+      .connection{font-size:1rem}
+      .spirit{font-size:1.12rem;letter-spacing:.12em}
+      .play{font-size:1.18rem}
+      .impact{font-size:.84rem}
+    }
+</style>
 </head>
 <body>
   <main class="frame" aria-label="Balance grid menu">
