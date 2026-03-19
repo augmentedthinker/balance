@@ -38,9 +38,11 @@
     .domain-notes h2{margin:0 0 14px;font-size:1.05rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(225,191,132,.92)}
     .domain-list{display:grid;gap:10px}
     .domain-item{display:block;margin:0;padding:12px 14px;border:1px solid rgba(185,223,255,.12);border-radius:14px;background:rgba(255,255,255,.03);color:rgba(219,230,242,.92);line-height:1.55;text-decoration:none;transition:border-color .18s ease,background .18s ease,transform .18s ease}
-    .domain-item strong{color:#f3e2bf}.domain-item:hover,.domain-item:focus-visible{transform:translateY(-1px);border-color:rgba(232,147,74,.45);background:rgba(255,255,255,.05);outline:none}
+    .domain-item strong{color:#f3e2bf}.domain-item:hover,.domain-item:focus-visible{transform:translateY(-1px);border-color:rgba(232,147,74,.45);background:rgba(255,255,255,.05);outline:none}.top-actions{position:fixed;top:18px;right:18px;z-index:9999;display:flex;gap:10px}.top-btn{border:1px solid rgba(185,223,255,.22);background:rgba(10,18,30,.82);color:#eaf5ff;text-decoration:none;padding:10px 14px;border-radius:999px;font:600 .9rem Inter,system-ui,sans-serif;backdrop-filter:blur(10px);box-shadow:0 12px 28px rgba(0,0,0,.26);cursor:pointer}.top-btn:hover{background:rgba(18,28,44,.92)}
     
     @media (max-width:720px){
+      .top-actions{top:12px;right:12px}
+      .top-btn{padding:9px 12px;font-size:.86rem}
       body{padding:14px;overflow-x:hidden;overflow-y:auto}
       .frame{width:min(100%, calc(100vw - 28px));min-height:0;padding:16px 14px 18px;border-radius:24px;gap:12px}
       .menu-top,.menu-bottom{max-width:100%}
